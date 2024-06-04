@@ -1,3 +1,6 @@
+# In order to install the `test-app`, rename this file into `testapp.yaml`
+
+
 apiVersion: v1
 kind: Namespace
 metadata:
