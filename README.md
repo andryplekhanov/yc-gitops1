@@ -33,3 +33,38 @@ security_group_id = "enpmbs0454vsg2vjtida"
 ```
 
 - Подключаемся к кластеру: `yc managed-kubernetes cluster get-credentials --name=kube-infra --external --force`
+
+
+## Этап 3 — Разворачиваем приложения
+
+- переходим в папку с helm-чартами: `cd ../helm`
+
+### Разворачиваем в кластере Gitlab runner
+
+```
+helm install gitlab-runner charts/gitlab-runner \
+  --set gitlabUrl=<URL> \
+  --set runnerRegistrationToken=<token> \
+  --set rbac.create=true \
+  --namespace gitlab \
+  --create-namespace
+```
+
+### Создаём секреты
+
+- создаём неймспейс: `kubectl create namespace argocd`
+- генерим ключ: `age-keygen -o key.txt`
+- экспортируем переменные:
+  - `export SOPS_AGE_KEY_FILE=$(pwd)/key.txt`
+  - `export SOPS_AGE_RECIPIENTS=<публичный ключ, который распечатала команда выше>`
+- создаем Secret внутри кластера: `kubectl -n argocd create secret generic helm-secrets-private-keys --from-file=key.txt`
+
+### Разворачиваем в кластере Argocd и App of apps
+
+- для сервисного аккаунта **ingress-controller** создаем ключи: `yc iam key create --service-account-name ingress-controller --output ingress-sa-key.json`
+- из папки `values/templates` переносим файлы в папку `values` и меняем у них расширение на **.yaml**
+- редактируем файлы в папке `values`
+- зашифровываем их: `helm secrets enc values/argocd.yaml`
+- устанавливаем Argocd в кластер: `helm secrets -n argocd upgrade --install argocd charts/argo-cd -f values/argocd.yaml`
+- добавляем репо в helm: `helm repo add argo https://argoproj.github.io/argo-helm`
+- устанавливаем **App of apps** из репо: `helm secrets -n argocd upgrade --install argocd-apps argo/argocd-apps -f values/argocd-apps.yaml`
