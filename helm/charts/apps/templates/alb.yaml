@@ -21,7 +21,7 @@ spec:
   project: default
   source:
     # Указываем путь до чарта
-    path: charts/yc-alb-ingress-controller-chart
+    path: helm/charts/yc-alb-ingress-controller-chart
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     # Обратите внимание, что путь до зашифрованных

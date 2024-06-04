@@ -8,7 +8,7 @@ applications:
         valueFiles:
           - ../../values/apps.yaml
       # Путь до чарта
-      path: charts/apps
+      path: helm/charts/apps
       # Репозиторий
       repoURL: <repo url with helm-chart>
     destination:
