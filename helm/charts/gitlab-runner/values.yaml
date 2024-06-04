@@ -1,0 +1,70 @@
+affinity: {}
+checkInterval: 30
+concurrent: 10
+configMaps: {}
+gitlabDomain: ""
+hostAliases: []
+image:
+  image: yandex-cloud/gitlab-org/gitlab-runner/gitlab-runner
+  registry: cr.yandex/yc-marketplace
+  tag: alpine-v16.1.0
+imagePullPolicy: IfNotPresent
+metrics:
+  enabled: false
+  port: 9252
+  portName: metrics
+  serviceMonitor:
+    enabled: false
+nodeSelector: {}
+podAnnotations: {}
+podLabels: {}
+podSecurityContext:
+  fsGroup: 65533
+  runAsUser: 100
+priorityClassName: ""
+rbac:
+  clusterWideAccess: false
+  create: true
+  podSecurityPolicy:
+    enabled: false
+    resourceNames:
+    - gitlab-runner
+  rules: []
+resources: {}
+runnerRegistrationToken: ""
+runners:
+  cache: {}
+  config: |
+    [[runners]]
+      [runners.kubernetes]
+        namespace = "{{.Release.Namespace}}"
+        image = "ubuntu:22.04"
+    {{- if .Values.runners.privileged }}
+        privileged = true
+      [[runners.kubernetes.volumes.empty_dir]]
+        name = "docker-certs"
+        mount_path = "/certs/client"
+        medium = "Memory"
+    {{- end }}
+  locked: false
+  privileged: false
+  tags: ""
+secrets: []
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  privileged: false
+  readOnlyRootFilesystem: false
+  runAsNonRoot: true
+service:
+  enabled: false
+  type: ClusterIP
+sessionServer:
+  enabled: false
+terminationGracePeriodSeconds: 3600
+tolerations: []
+useTini: false
+volumeMounts: []
+volumes: []

@@ -1,0 +1,33 @@
+resource "yandex_vpc_network" "k8s-network" {
+  name = "k8s-network"
+}
+
+resource "yandex_vpc_subnet" "k8s-subnet-1" {
+  name = "k8s-subnet-1"
+  v4_cidr_blocks = ["10.2.0.0/16"]
+  zone           = var.zone[0]
+  network_id     = yandex_vpc_network.k8s-network.id
+  depends_on = [
+    yandex_vpc_network.k8s-network,
+  ]
+}
+
+resource "yandex_vpc_subnet" "k8s-subnet-2" {
+  name = "k8s-subnet-2"
+  v4_cidr_blocks = ["10.3.0.0/16"]
+  zone           = var.zone[1]
+  network_id     = yandex_vpc_network.k8s-network.id
+  depends_on = [
+    yandex_vpc_network.k8s-network,
+  ]
+}
+
+resource "yandex_vpc_subnet" "k8s-subnet-3" {
+  name = "k8s-subnet-3"
+  v4_cidr_blocks = ["10.4.0.0/16"]
+  zone           = var.zone[2]
+  network_id     = yandex_vpc_network.k8s-network.id
+  depends_on = [
+    yandex_vpc_network.k8s-network,
+  ]
+}
