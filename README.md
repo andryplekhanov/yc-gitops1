@@ -39,12 +39,16 @@ security_group_id = "enpmbs0454vsg2vjtida"
 
 - переходим в папку с helm-чартами: `cd ../helm`
 
-### Разворачиваем в кластере Gitlab runner
+### Настраиваем Gitlab и разворачиваем в кластере runner
+
+- заходим на Gitlab в данный проект (с helm-чартами) и идём в **Settings**
+- в разделе **Access Tokens** создаём токен с ролью **Developer** и разрешением **Read repository**. Запоминаем его. Он нам пригодится далее.
+- в разделе **CI/CD** идём в **Runners** и создаём раннер. Подставляем полученный token и URL в команду ниже и выполняем её.
 
 ```
 helm install gitlab-runner charts/gitlab-runner \
-  --set gitlabUrl=<URL> \
-  --set runnerRegistrationToken=<token> \
+  --set gitlabUrl=<runner URL> \
+  --set runnerRegistrationToken=<runner token> \
   --set rbac.create=true \
   --namespace gitlab \
   --create-namespace
