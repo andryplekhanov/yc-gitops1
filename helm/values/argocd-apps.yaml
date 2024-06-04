@@ -8,7 +8,7 @@ applications:
         valueFiles:
           - ../../values/apps.yaml
       # Путь до чарта
-      path: charts/apps
+      path: helm/charts/apps
       # Репозиторий
       repoURL: https://gitlab.com/andryplekhanov/yc-gitops1.git
     destination:
