@@ -63,8 +63,12 @@ helm install gitlab-runner charts/gitlab-runner \
 
 - для сервисного аккаунта **ingress-controller** создаем ключи: `yc iam key create --service-account-name ingress-controller --output ingress-sa-key.json`
 - из папки `values/templates` переносим файлы в папку `values` и меняем у них расширение на **.yaml**
-- редактируем файлы в папке `values`
+- редактируем файлы в папке `values`. Вписываем параметры везде, где встречаются угловые скобки **<some_data>**
 - зашифровываем их: `helm secrets enc values/argocd.yaml`
 - устанавливаем Argocd в кластер: `helm secrets -n argocd upgrade --install argocd charts/argo-cd -f values/argocd.yaml`
 - добавляем репо в helm: `helm repo add argo https://argoproj.github.io/argo-helm`
 - устанавливаем **App of apps** из репо: `helm secrets -n argocd upgrade --install argocd-apps argo/argocd-apps -f values/argocd-apps.yaml`
+- всё коммитим и пушим в Gitlab
+- минут через 10, когда поднимется балансировщик, можем зайти на наш Argocd по адресу `https://argocd.<ваш домен>`
+  - логин **admin**, 
+  - пароль узнать командой `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
