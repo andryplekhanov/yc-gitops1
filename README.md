@@ -28,5 +28,8 @@ export TOKEN=""
 Outputs:
 
 cluster_id = "cate0ugm3ubsq2iana7f"
+container_registry_id = "crplq85o3ts2puflph5j"
 security_group_id = "enpmbs0454vsg2vjtida"
 ```
+
+- Подключаемся к кластеру: `yc managed-kubernetes cluster get-credentials --name=kube-infra --external --force`
