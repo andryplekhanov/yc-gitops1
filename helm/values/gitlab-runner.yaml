@@ -1,0 +1,24 @@
+gitlabUrl: ENC[AES256_GCM,data:1f3VP1wkyahfAd5iedL6uvmF,iv:OmP2NFUlOPfbvAJGhJr1w24ZfWWzPWqGDcWZ4uh0H3k=,tag:so9dxNTJGREUsbWpZ/HsCg==,type:str]
+runnerRegistrationToken: ENC[AES256_GCM,data:u/eHAOx8ZrpwuXcd4HC5af8636wv4oG8aw==,iv:QDH4UO1dycZq9XztFYZNhzkkbjduYaqJbPSJhc8qt1k=,tag:Opqm3jSKbJbzgRQ+xtKv6w==,type:str]
+rbac:
+    create: ENC[AES256_GCM,data:SQtaow==,iv:KgRzMPsjz4cVb+htmTSpxfGEzyB3ldFJ/AwZFElmDxw=,tag:YUzVPBTDgJ1jwmW45evcIg==,type:bool]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1ku8nxg07xggm5udltx86vh9ae78pun3gtej2gzf5jp5l3egjg4kq63mhsn
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5aUNuSkpGQzIzNldHTWRh
+            aDhpRnFzUUtNYXYwWWdpS3IzeGVVeENHV3pjCjc2aE5rVmJWRldrbHJab2VxQm9k
+            UDU3UWwvYnZQSHRvYUVPNkRDOHFwNkUKLS0tIDFGWWpYYTdVeWt4WXEySUN4Rm1U
+            amhyY3NKYTh1Y2h5ZXZVYis5MUZDNlEKVOTPV+DV6m8Shng6BrklACcoZPB5A2rv
+            xG0FF+mL/QFcoNgfAoBm97JslWbJFYJPimGUOP9DcO68e5hK/viZMg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-04T08:02:30Z"
+    mac: ENC[AES256_GCM,data:9ARQeauFcPrtsvIWvTuOukqRwM/A1MHDBlGlkvs6w6Xzuamb2WOMnd5MTa6Ac964hyasEiS29Kd4ks9qoVvsEn6AXoYo5rxqOm62Zpo7CdL6yUQQ+lZeekB/15f3qKYdKMEMV7L51HcWKhpB86nalLJCU92W8zp9yM6scmZniUk=,iv:9nwPYAVo/TU+aNlswXMNsCHIjgqrDDnDSIaH3XZYZDI=,tag:NpC3s1lbaa9XLfUneN2dSQ==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.8.1
