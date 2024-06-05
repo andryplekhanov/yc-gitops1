@@ -12,16 +12,22 @@ _Данный этап я не стал автоматизировать, пос
 ## Этап 2 — Разворачиваем зональный кластер k8s
 
 - Переходим в папку terraform: `cd terraform`
-- В Yandex Cloud нам нужны **cloud id**, **folder id**, **token**. Вставляем их между кавычками в команду ниже и применяем её:
-
-```bash
-export CLOUD="" && \
-export FOLDER="" && \
-export TOKEN=""
-```
 - В Yandex Cloud берём **network id** и **subnet ids** (3 шт.: в зонах ru-central1-a, b и d). Вставляем их в `variables.tf` в **yc_network_id** и **yc_subnet_ids**.
 - Инициализируем terraform: `terraform init`
-- Применяем: `terraform apply -var yc_cloud=$CLOUD -var yc_folder=$FOLDER -var yc_token=$TOKEN -var user=$USER`
+- В Yandex Cloud берём **cloud id**, **folder id**, **token**. Вставляем их между кавычками в команду ниже.
+- Также придумываем и запоминаем данные для БД PostgreSQL и вписываем в команду ниже.
+- Применяем: 
+
+```bash
+terraform apply \
+ -var yc_cloud="" \
+ -var yc_folder="" \
+ -var yc_token="" \
+ -var user="" \
+ -var db_name="" \
+ -var db_username="" \
+ -var db_password=""
+```
 - Получаем результат:
 
 ```
