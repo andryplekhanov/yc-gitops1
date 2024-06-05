@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: repos
+  namespace: argocd
+spec:
+  destination:
+    # Устанавливаем в тот же неймспейс, что и argocd
+    namespace: argocd
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    # Указываем путь до чарта
+    path: helm/charts/repos
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      valueFiles:
+        - secrets+age-import:///helm-secrets-private-keys/key.txt?../../values/repos.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
