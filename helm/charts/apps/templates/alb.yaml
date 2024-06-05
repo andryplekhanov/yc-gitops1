@@ -31,4 +31,6 @@ spec:
       valueFiles:
         - secrets+age-import:///helm-secrets-private-keys/key.txt?../../values/alb.yaml
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,5 +1,5 @@
 applications:
-  - name: apps
+  apps:
     namespace: argocd
     project: default
     source:
@@ -16,4 +16,6 @@ applications:
       namespace: argocd
       server: https://kubernetes.default.svc
     syncPolicy:
-      automated: { }
+      automated:
+        prune: true
+        selfHeal: true
