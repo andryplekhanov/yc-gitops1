@@ -71,7 +71,10 @@ helm install gitlab-runner charts/gitlab-runner \
 
 ### Разворачиваем в кластере Argocd и App of apps
 
-- для сервисного аккаунта **ingress-controller** создаем ключи: `yc iam key create --service-account-name ingress-controller --output ingress-sa-key.json`
+- для сервисных аккаунтов создаем ключи:
+  - для **ingress-controller**: `yc iam key create --service-account-name ingress-controller --output ingress-sa-key.json`
+  - для **registry-puller**: `yc iam key create --service-account-name ingress-controller --output reg-puller-sa-key.json`
+  - для **registry-pusher**: `yc iam key create --service-account-name ingress-controller --output reg-pusher-sa-key.json`
 - из папки `values/templates` переносим файлы в папку `values` и меняем у них расширение на **.yaml**
 - редактируем файлы в папке `values`. Вписываем параметры везде, где встречаются угловые скобки **<some_data>**
 - зашифровываем их: `helm secrets enc values/argocd.yaml`
