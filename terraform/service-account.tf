@@ -69,18 +69,34 @@ resource "yandex_resourcemanager_folder_iam_binding" "ingress-compute-viewer" {
   ]
 }
 
-# Создание сервисного аккаунта images-puller
-resource "yandex_iam_service_account" "images-puller" {
-  name        = "${var.user}-images-puller"
+# Создание сервисного аккаунта registry-puller
+resource "yandex_iam_service_account" "registry-puller" {
+  name        = "registry-puller"
   description = "service account to manage docker images on nodes"
 }
 
 # назначаем сервисному аккаунту роль container-registry.images.puller
 # от его имени будут стягиваться образы из container-registry
-resource "yandex_resourcemanager_folder_iam_binding" "folder_puller" {
+resource "yandex_resourcemanager_folder_iam_binding" "folder-puller" {
   folder_id   = var.yc_folder
   role = "container-registry.images.puller"
   members = [
-    "serviceAccount:${yandex_iam_service_account.images-puller.id}",
+    "serviceAccount:${yandex_iam_service_account.registry-puller.id}",
+  ]
+}
+
+# Создание сервисного аккаунта registry-pusher
+resource "yandex_iam_service_account" "registry-pusher" {
+  name        = "registry-pusher"
+  description = "service account to manage docker images on nodes"
+}
+
+# назначаем сервисному аккаунту роль container-registry.images.pusher
+# от его имени будут стягиваться образы из container-registry
+resource "yandex_resourcemanager_folder_iam_binding" "folder-pusher" {
+  folder_id   = var.yc_folder
+  role = "container-registry.images.pusher"
+  members = [
+    "serviceAccount:${yandex_iam_service_account.registry-pusher.id}",
   ]
 }
