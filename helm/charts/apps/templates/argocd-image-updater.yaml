@@ -1,26 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: todofrontend
+  name: argocd-image-updater
   # Обратите внимание на namespace – он должен быть argocd
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: front=cr.yandex/crp8eltfp9p1mgq5tb7a/andryplekhanov/todofrontend
-    argocd-image-updater.argoproj.io/front.update-strategy: latest
 spec:
   destination:
-    # А вот тут уже неймспейс, куда будет устанавливаться сам чарт
-    namespace: todofrontend
+    # Сам argocd-image-updater также размещается внутри неймспейса argocd
+    namespace: argocd
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
     # Указываем путь до чарта
-    path: helm/charts/todofrontend
+    path: charts/argocd-image-updater
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valueFiles:
-        - secrets+age-import:///helm-secrets-private-keys/key.txt?../../values/todofrontend.yaml
+        - secrets+age-import:///helm-secrets-private-keys/key.txt?../../values/argocd-image-updater.yaml
   syncPolicy:
     automated:
       prune: true
