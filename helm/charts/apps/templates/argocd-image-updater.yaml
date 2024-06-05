@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     # Указываем путь до чарта
-    path: charts/argocd-image-updater
+    path: helm/charts/argocd-image-updater
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
