@@ -1,17 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: repos
+  name: todofrontend
+  # Обратите внимание на namespace – он должен быть argocd
   namespace: argocd
 spec:
   destination:
-    # Устанавливаем в тот же неймспейс, что и argocd
-    namespace: argocd
+    # А вот тут уже неймспейс, куда будет устанавливаться сам чарт
+    namespace: todofrontend
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
     # Указываем путь до чарта
-    path: helm/charts/repos
+    path: helm/charts/todofrontend
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
@@ -21,3 +22,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
