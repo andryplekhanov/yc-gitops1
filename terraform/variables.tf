@@ -39,3 +39,24 @@ variable "zone" {
   type        = list(string)
   default     = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
 }
+
+variable "db_password" {
+  type        = string
+  default     = "123456qwerty"
+  description = "Default password for PostgreSQL"
+  sensitive   = true
+}
+
+variable "db_username" {
+  type        = string
+  default     = "db_username"
+  description = "Default username for PostgreSQL"
+  sensitive   = true
+}
+
+variable "db_name" {
+  type        = string
+  default     = "db_name"
+  description = "Default name for PostgreSQL"
+  sensitive   = true
+}

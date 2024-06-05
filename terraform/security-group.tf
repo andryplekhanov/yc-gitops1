@@ -1,3 +1,4 @@
+# Security group for k8s
 resource "yandex_vpc_security_group" "k8s-main-sg" {
   name        = "yc-security-group"
   description = "Правила группы обеспечивают базовую работоспособность кластера. Примените ее к кластеру и группам узлов."
@@ -54,5 +55,18 @@ resource "yandex_vpc_security_group" "k8s-main-sg" {
     v4_cidr_blocks = ["0.0.0.0/0"]
     from_port      = 0
     to_port        = 65535
+  }
+}
+
+# Security group for PostgreSQL
+resource "yandex_vpc_security_group" "pgsql-sg" {
+  name       = "pgsql-sg"
+  network_id = var.yc_network_id
+
+  ingress {
+    description    = "PostgreSQL"
+    port           = 6432
+    protocol       = "TCP"
+    v4_cidr_blocks = [ "0.0.0.0/0" ]
   }
 }
