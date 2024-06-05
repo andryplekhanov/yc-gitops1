@@ -1,4 +1,5 @@
 applications:
+#  - name: apps
   apps:
     namespace: argocd
     project: default

@@ -1,5 +1,5 @@
 applications:
-  apps:
+  - name: apps
     namespace: argocd
     project: default
     source:
