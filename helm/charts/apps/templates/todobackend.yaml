@@ -16,8 +16,8 @@ spec:
   source:
     # Указываем путь до чарта
     path: helm/charts/todobackend
-    repoURL: {{ .Values.spec.source.RepoURL }}
-    targetRevision: {{ .Values.spec.source.TargetRevision }}
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
     helm:
       valueFiles:
         - secrets+age-import:///helm-secrets-private-keys/key.txt?../../values/todobackend.yaml
