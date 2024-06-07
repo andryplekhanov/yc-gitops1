@@ -1,5 +1,6 @@
 applications:
-#  - name: apps
+# в случае ошибки вместо apps: на 4й строке написать
+# - name: apps
   apps:
     namespace: argocd
     project: default
