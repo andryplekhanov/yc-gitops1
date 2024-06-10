@@ -1,26 +1,6 @@
 spec:
-    source:
-        repoURL: ENC[AES256_GCM,data:2GxSZYiDQLKzPkTTYFRe0OWvtq20+eGPpxghKE44xahHNO86lttEGjZkms5iDqI8,iv:bX4XiHf1sh3QbDv7W5vuhgV2NdHlQDw7YAcBBgd+pYk=,tag:wrH+2ywmarF7af9DokP5lg==,type:str]
-        targetRevision: ENC[AES256_GCM,data:ViKdaw==,iv:BhZdIAU8W0jYw7BIyOCSsXRifoC+XTkVy0nSR2Z5Lok=,tag:Vqc0tcVRJZHy54d9goE0Bg==,type:str]
-    destination:
-        server: ENC[AES256_GCM,data:Z/R9TTOA/3sibOshdc4kduDAIlDOKD7X57PkOY8i,iv:j/3WEW4ISjwBTJIx/DQj6Shufw1D2lK41/v0CoxxDd8=,tag:mx4wnjBbddMS5VEtNh85SQ==,type:str]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1ccnczum7snqluqryz5vj0dqhamf79pfmg8aqg39hqxylm5d3vacqk2r5ca
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCcTBBQ3FmUHMwV1psWWdY
-            bnRwNEpHc3RFQ2s5SnJHb0s5b0tmazZ1OUZZCkNyazZrcDJFRndVQU9pbERxdHhT
-            R1FGeDQvVmhQZGZQUjRqMjdpMlR0VGMKLS0tIGxHcXZYc0NmMDZpUUI2czcySXBI
-            ZUZzZVRNTFltSERnMFdzbDBwTlhqOWMKEugrLFHdPhawtc1lvGAvMh8M/b9nBvX3
-            TTO2q1TTEYedeJSptH9gWXJJ47dkT27LgaH9iE9GvuPvcgTJaCRdGg==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-10T14:49:44Z"
-    mac: ENC[AES256_GCM,data:vQPPb/jCfJ9SXjdCj9BvMuuHgPaZXcPiK6X/bUKL0pBAKumtpRr0vWV83/R9ESDn6ItCm08AXpJGii0cJDMNSCN5aLbBkdFKljnC8vIpqeAeuccqzDWJpakmwCO5kOJQh3nBYBSuj68wY+ENE4em0XJULjhX9xJ399hxWbdYPQQ=,iv:zUrbz03a88CxCexI7GyfXiDFi+AAtKu1t1BqyOU6EYo=,tag:hwp7XLeF/Sz3S2ZuzVJFfw==,type:str]
-    pgp: []
-    unencrypted_suffix: _unencrypted
-    version: 3.8.1
+  source:
+    repoURL: <repo url with helm-chart>
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
