@@ -25,6 +25,7 @@
 - Зарегистрируйте **домен** и для его делегирования на NS сервера Яндекса внутри настроек домена поменяйте NS записи на:
   - ns1.yandexcloud.net
   - ns1.yandexcloud.net
+
 **Внимание!** Обновление DNS может занять до 24 часов. Проделайте этот шаг заранее.
 
 
@@ -64,11 +65,13 @@ postgres_cluster_id = "c9qr4lslh65aha2o56q1"
 
 - переходим в папку с чартами: `cd ../helm`
 - подключаемся к кластеру: `yc managed-kubernetes cluster get-credentials --name=kube-infra --external --force`
-- для сервисных аккаунтов создаем ключи (пригодятся позже):
-  - для **ingress-controller**: `yc iam key create --service-account-name ingress-controller --output ingress-sa-key.json`
-  - для **registry-puller**: `yc iam key create --service-account-name registry-puller --output reg-puller-sa-key.json`
-  - для **registry-pusher**: `yc iam key create --service-account-name registry-pusher --output reg-pusher-sa-key.json`
+- для сервисных аккаунтов **ingress-controller**, **registry-puller** и **registry-pusher** создаем ключи (пригодятся позже):
 
+```bash
+yc iam key create --service-account-name ingress-controller --output ingress-sa-key.json
+yc iam key create --service-account-name registry-puller --output reg-puller-sa-key.json
+yc iam key create --service-account-name registry-pusher --output reg-pusher-sa-key.json
+```
 
 ## Этап 3 — Настраиваем Gitlab
 
