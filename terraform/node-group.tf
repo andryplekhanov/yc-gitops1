@@ -13,7 +13,7 @@ resource "yandex_kubernetes_node_group" "node-group1" {
 
     network_interface {
       nat                = true
-      subnet_ids         = [var.yc_subnet_ids[1]]
+      subnet_ids         = [yandex_vpc_subnet.k8s-subnet-b.id]
       security_group_ids = [yandex_vpc_security_group.k8s-main-sg.id]
     }
 
@@ -72,5 +72,7 @@ resource "yandex_kubernetes_node_group" "node-group1" {
 #  }
   depends_on = [
     yandex_kubernetes_cluster.zonal-k8s-cluster,
+    yandex_vpc_network.k8s-network,
+    yandex_vpc_subnet.k8s-subnet-b
   ]
 }

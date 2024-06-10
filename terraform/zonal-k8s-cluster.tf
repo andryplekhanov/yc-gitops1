@@ -2,13 +2,13 @@ resource "yandex_kubernetes_cluster" "zonal-k8s-cluster" {
   name        = "kube-infra"
   description = "description"
 
-  network_id = var.yc_network_id
+  network_id = yandex_vpc_network.k8s-network.id
 
   master {
     version = "1.29"
     zonal {
       zone      = var.zone[1]
-      subnet_id = var.yc_subnet_ids[1]
+      subnet_id = yandex_vpc_subnet.k8s-subnet-b.id
     }
 
     public_ip = true
@@ -52,6 +52,7 @@ resource "yandex_kubernetes_cluster" "zonal-k8s-cluster" {
     yandex_iam_service_account.editor-k8s,
     yandex_vpc_security_group.k8s-main-sg,
     yandex_resourcemanager_folder_iam_member.editor-k8s,
-
+    yandex_vpc_network.k8s-network,
+    yandex_vpc_subnet.k8s-subnet-b
   ]
 }

@@ -2,7 +2,11 @@
 resource "yandex_vpc_security_group" "k8s-main-sg" {
   name        = "yc-security-group"
   description = "Правила группы обеспечивают базовую работоспособность кластера. Примените ее к кластеру и группам узлов."
-  network_id  = var.yc_network_id
+  network_id  = yandex_vpc_network.k8s-network.id
+  depends_on = [
+    yandex_vpc_network.k8s-network,
+    yandex_vpc_subnet.k8s-subnet-b
+  ]
 
   ingress {
     description = "Allow HTTPS"
@@ -61,7 +65,7 @@ resource "yandex_vpc_security_group" "k8s-main-sg" {
 # Security group for PostgreSQL
 resource "yandex_vpc_security_group" "pgsql-sg" {
   name       = "pgsql-sg"
-  network_id = var.yc_network_id
+  network_id = yandex_vpc_network.k8s-network.id
 
   ingress {
     description    = "PostgreSQL"

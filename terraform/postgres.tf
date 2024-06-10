@@ -4,7 +4,7 @@
 resource "yandex_mdb_postgresql_cluster" "postgresql-test" {
   name        = "postgresql-test"
   environment = "PRODUCTION"
-  network_id  = var.yc_network_id
+  network_id  = yandex_vpc_network.k8s-network.id
   security_group_ids  = [ yandex_vpc_security_group.pgsql-sg.id ]
 
   config {
@@ -31,10 +31,12 @@ resource "yandex_mdb_postgresql_cluster" "postgresql-test" {
 
   host {
     zone      = var.zone[1]
-    subnet_id = var.yc_subnet_ids[1]
+    subnet_id = yandex_vpc_subnet.k8s-subnet-b.id
   }
   depends_on = [
-    yandex_vpc_security_group.pgsql-sg
+    yandex_vpc_security_group.pgsql-sg,
+    yandex_vpc_network.k8s-network,
+    yandex_vpc_subnet.k8s-subnet-b
   ]
 }
 

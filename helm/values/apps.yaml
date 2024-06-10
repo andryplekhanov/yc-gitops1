@@ -1,6 +1,0 @@
-spec:
-  source:
-    repoURL: https://gitlab.com/andryplekhanov/yc-gitops1.git
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc

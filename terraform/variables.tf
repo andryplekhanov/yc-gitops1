@@ -19,25 +19,19 @@ variable "yc_token" {
 
 variable "user" {
   type        = string
-  description = "$USER"
-}
-
-variable "yc_network_id" {
-  description = "Default network ID in yandex cloud"
-  type        = string
-  default     = "enpaf3uu4ql2vqmn3ffh"
-}
-
-variable "yc_subnet_ids" {
-  description = "Default subnet IDs in yandex cloud"
-  type        = list(string)
-  default     = ["e9bqn0jaap861sq1ucc4", "e2ljdd9p8jgkd4mo0imi", "fl8ampu7udov950kmji9"]
+  description = "andrei"
 }
 
 variable "zone" {
   description = "Use specific availability zone"
   type        = list(string)
   default     = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
+}
+
+variable "domain_name" {
+  type        = string
+  default     = "andreiplekhanov.ru"
+  description = "Your site's name, for example 'andreiplekhanov.ru'"
 }
 
 variable "db_password" {
