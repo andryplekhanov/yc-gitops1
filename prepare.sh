@@ -8,7 +8,8 @@ sudo apt install unzip -y
 chmod +x ./soft/terraform
 sudo cp ./soft/terraform /bin/
 sudo cp ./soft/.terraformrc /root/
-chown -R $USER:$USER ./soft/.terraformrc
+sudo cp ./soft/.terraformrc /home/$USER/
+chown -R $USER:$USER /home/$USER/.terraformrc
 
 echo '' && echo '------------------------------------------' && echo ''
 
@@ -42,6 +43,7 @@ echo '' && echo '------------------------------------------' && echo ''
 # Install YandexCloud CLI
 echo "Install YandexCloud CLI"
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+source "/home/$USER/.bashrc"
 
 echo '' && echo '------------------------------------------' && echo ''
 
