@@ -1,7 +1,8 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt upgrade -y
+export DEBIAN_FRONTEND=noninteractive
+sudo apt -y remove needrestart
+sudo apt update && sudo apt upgrade -y
 sudo apt install unzip -y
 
 # Install terraform
@@ -43,7 +44,6 @@ echo '' && echo '------------------------------------------' && echo ''
 # Install YandexCloud CLI
 echo "Install YandexCloud CLI"
 curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-source "/home/$USER/.bashrc"
 
 echo '' && echo '------------------------------------------' && echo ''
 
@@ -52,7 +52,7 @@ echo '' && echo '------------------------------------------' && echo ''
 echo "Install sops"
 curl -LO https://github.com/getsops/sops/releases/download/v3.8.1/sops-v3.8.1.linux.amd64
 sudo mv sops-v3.8.1.linux.amd64 /usr/local/bin/sops
-sudochmod +x /usr/local/bin/sops
+sudo chmod +x /usr/local/bin/sops
 
 echo '' && echo '------------------------------------------' && echo ''
 
@@ -91,5 +91,7 @@ age --version
 echo -e " "
 
 echo -e "============================= Версия terraform ==================================="
-terraform --version
+terraform version
 echo -e " "
+
+exec -l $SHELL
