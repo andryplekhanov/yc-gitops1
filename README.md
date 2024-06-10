@@ -21,22 +21,20 @@
 
 ### Подготовка YandexCloud
 
-_Данный этап я не стал автоматизировать, поскольку действия связанные с регистрацией домена и выдачей сертификата могут занять продолжительное время, поэтому лучше всё это проделать заранее._
+- В **Yandex Cloud** должны быть созданы **cloud** с дефолтной **folder**. Фолдер должен быть пустым (удалите дефолтные сети и подсети, если они создались).
+- Зарегистрируйте **домен** и для его делегирования на NS сервера Яндекса внутри настроек домена поменяйте NS записи на:
+  - ns1.yandexcloud.net
+  - ns1.yandexcloud.net
+**Внимание!** Обновление DNS может занять до 24 часов. Проделайте этот шаг заранее.
 
-- В Yandex Cloud должно быть создано облако с дефолтными **folder**, **network** и **subnets** (3 шт.: в зонах ru-central1-a, b и d)
-- В Yandex Cloud в дефолтном **folder** должны быть созданы:
-  - Публичный статический IP-адрес
-  - DNS зона (публичная), например `andreiplekhanov.ru.`
-  - В этой зоне: запись типа A, например `*.andreiplekhanov.ru.`, указывающая на ранее созданный IP.
-  - Сертификат от **Let’s Encrypt** и **CNAME** запись к ранее созданному домену.
 
-## Этап 2 — Разворачиваем зональный кластер k8s
+## Этап 2 — Разворачиваем инфраструктуру в Yandex Cloud
 
 - Переходим в папку terraform: `cd terraform`
-- В Yandex Cloud берём **network id** и **subnet ids** (3 шт.: в зонах ru-central1-a, b и d). Вставляем их в `variables.tf` в **yc_network_id** и **yc_subnet_ids**.
-- Инициализируем terraform: `terraform init`
+- В файле `variables.tf` вписываем значение переменной `domain_name` - домен, который мы зарегистрировали на предыдущем этапе.
 - В Yandex Cloud берём **cloud id**, **folder id**, **token**. Вставляем их между кавычками в команду ниже.
 - Также придумываем и запоминаем данные для БД PostgreSQL и вписываем в команду ниже.
+- Инициализируем terraform: `terraform init`
 - Применяем: 
 
 ```bash
@@ -49,11 +47,15 @@ terraform apply \
  -var db_username="" \
  -var db_password=""
 ```
-- Получаем результат:
+- Получаем результат и сохраняем его себе. Пригодится на следующем этапе:
 
 ```
 Outputs:
 
+yandex_cm_certificate_id = "fpqtka6kjg6q4cjl42rl"
+yandex_vpc_address = "158.160.66.98"
+yandex_vpc_subnet_id = "e2l63pdkudnn1rbbr4h4"
+yc_network_id = "enpmh0hoc1i2gk5knkcr"
 k8s_cluster_id = "cate0ugm3ubsq2iana7f"
 container_registry_id = "crplq85o3ts2puflph5j"
 security_group_id = "enpmbs0454vsg2vjtida"
@@ -87,7 +89,7 @@ helm install gitlab-runner charts/gitlab-runner \
 
 ### Настраиваем CI в репозиториях с микросервисами
 
-- заходим на Gitlab в проекты с приложениями (в каждый) и идём в **Settings** -> **CI/CD**
+- заходим на Gitlab в проекты с приложениями **todofrontend** и **todobackend** (в каждый) и идём в **Settings** -> **CI/CD**
 - идём в **Runners** и подключаем ранее созданный раннер.
 - идём в **Variables** и создаём переменные:
   - YC_CI_REGISTRY: cr.yandex
