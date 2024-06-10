@@ -2,11 +2,13 @@
 
 sudo apt update
 sudo apt upgrade -y
+sudo apt install unzip -y
 
 # Install terraform
-curl -O https://hashicorp-releases.yandexcloud.net/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip
-unzip terraform_1.8.5_linux_amd64.zip
-sudo mv terraform /usr/local/bin
+chmod +x ./soft/terraform
+sudo cp ./soft/terraform /bin/
+sudo cp ./soft/.terraformrc /root/
+chown -R $USER:$USER ./soft/.terraformrc
 
 echo '' && echo '------------------------------------------' && echo ''
 
