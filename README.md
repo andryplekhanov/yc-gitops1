@@ -1,4 +1,25 @@
+# Разворачиваем TodoApp по модели GitOps
+
 ## Этап 1 — Подготовка
+
+### Подготовка репозиториев с приложениями
+
+Клонируем в свой Gitlab следующие репозитории:
+- репо с данным приложением **yc-gitops1**
+- репо с [фронтэнд-сервисом](https://github.com/yandex-cloud-examples/yc-courses-devops-course2/tree/master/todofrontend) приложения **todofrontend**
+- репо с [бэкэнд-сервисом](https://github.com/yandex-cloud-examples/yc-courses-devops-course2/tree/master/todobackend) приложения **todobackend**
+
+
+### Подготовка ПК или ВМ
+
+На вашем ПК или ВМ должны быть установлены утилиты: terraform, kubectl, Helm, helm-secrets plugin, YandexCloud CLI, sops, age.
+
+**Для их автоматической установки на Ubuntu 22-04:**
+- клонируйте данный репозиторий и перейдите в проект
+- дайте права на исполнение: `chmod +x prepare.sh`
+- запустите скрипт: `./prepare.sh`
+
+### Подготовка YandexCloud
 
 _Данный этап я не стал автоматизировать, поскольку действия связанные с регистрацией домена и выдачей сертификата могут занять продолжительное время, поэтому лучше всё это проделать заранее._
 
