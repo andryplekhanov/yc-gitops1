@@ -77,7 +77,7 @@ yc iam key create --service-account-name registry-pusher --output reg-pusher-sa-
 
 ### Разворачиваем в кластере runner
 
-- заходим на Gitlab в данный проект (с helm-чартами) и идём в **Settings**
+- заходим на Gitlab в данный проект (**yc-gitops1**) и идём в **Settings**
 - в разделе **Access Tokens** создаём токен с ролью **Developer** и разрешением **Read repository**. Запоминаем его. Он нам пригодится далее.
 - в разделе **CI/CD** идём в **Runners** и создаём раннер. Подставляем полученный token и URL в команду ниже и выполняем её:
 
