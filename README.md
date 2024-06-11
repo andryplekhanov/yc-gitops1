@@ -95,10 +95,10 @@ helm install gitlab-runner charts/gitlab-runner \
 - заходим на Gitlab в проекты с приложениями **todofrontend** и **todobackend** (в каждый) и идём в **Settings** -> **CI/CD**
 - идём в **Runners** и подключаем ранее созданный раннер.
 - идём в **Variables** и создаём переменные:
-  - YC_CI_REGISTRY: cr.yandex
-  - YC_CI_REGISTRY_ID: <указываем наш container_registry_id>
-  - YC_CI_REGISTRY_PASSWORD: <содержимое файла reg-pusher-sa-key.json>
-  - YC_CI_REGISTRY_USER: json_key
+  - **YC_CI_REGISTRY**: cr.yandex
+  - **YC_CI_REGISTRY_ID**: <указываем наш container_registry_id>
+  - **YC_CI_REGISTRY_PASSWORD**: <содержимое файла reg-pusher-sa-key.json>
+  - **YC_CI_REGISTRY_USER**: json_key
 
 ![ci-variables](ci-variables.png)
 
@@ -137,4 +137,4 @@ helm install gitlab-runner charts/gitlab-runner \
 - логин **admin**, 
 - пароль узнать командой `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
 
-Также по адресу `https://todoapp.<ваш домен>` получаем наже работающее приложение.
+Также по адресу `https://todoapp.<ваш домен>` получаем наше работающее приложение.

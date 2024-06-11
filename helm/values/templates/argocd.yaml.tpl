@@ -14,10 +14,10 @@ server:
   # Включаем ингресс, прописываем хост, подсеть, адрес и группу
   ingress:
     annotations:
-      ingress.alb.yc.io/subnets: <subnet id ru-central1-b>
-      ingress.alb.yc.io/external-ipv4-address: <static IP address>
+      ingress.alb.yc.io/subnets: <yandex_vpc_subnet_id>
+      ingress.alb.yc.io/external-ipv4-address: <yandex_vpc_address>
       ingress.alb.yc.io/group-name: infra-ingress
-      ingress.alb.yc.io/security-groups: <security-group id>
+      ingress.alb.yc.io/security-groups: <security_group_id>
       # связь между балансировщиком и argocd – также через https
       ingress.alb.yc.io/transport-security: tls
     enabled: true
@@ -26,7 +26,7 @@ server:
     tls:
       - hosts:
           - argocd.<ваш домен>
-        secretName: yc-certmgr-cert-id-<ваш tls cert id>
+        secretName: yc-certmgr-cert-id-<yandex_cm_certificate_id>
     hosts:
       - argocd.<ваш домен>
   config:

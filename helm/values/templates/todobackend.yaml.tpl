@@ -4,10 +4,10 @@ image:
 ingress:
   enabled: true
   annotations:
-    ingress.alb.yc.io/subnets: <subnet id ru-central1-b>
-    ingress.alb.yc.io/external-ipv4-address: <static IP address>
+    ingress.alb.yc.io/subnets: <yandex_vpc_subnet_id>
+    ingress.alb.yc.io/external-ipv4-address: <yandex_vpc_address>
     ingress.alb.yc.io/group-name: infra-ingress
-    ingress.alb.yc.io/security-groups: <security-group id>
+    ingress.alb.yc.io/security-groups: <security_group_id>
   hosts:
     - host: todoapp.<ваш домен>
       paths:
@@ -16,17 +16,17 @@ ingress:
   tls:
     - hosts:
         - todoapp.<ваш домен>
-      secretName: yc-certmgr-cert-id-<ваш tls cert id>
+      secretName: yc-certmgr-cert-id-<yandex_cm_certificate_id>
 service:
   type: NodePort
   nodePort: 30084
 env:
   - name: DB_PG_NAME
-    value: <название базы данных PostgreSQL, которое вы указали при создании инфраструктуры>
+    value: <db_name название базы данных PostgreSQL, которое вы указали при создании инфраструктуры>
   - name: DB_PG_USER
-    value: <имя пользователя базы данных PostgreSQL>
+    value: <db_username базы данных PostgreSQL>
   - name: DB_PG_PASSWORD
-    value: <название базы данных PostgreSQL>
+    value: <db_password базы данных PostgreSQL>
   - name: DB_PG_HOST
     value: c-<postgres_cluster_id>.rw.mdb.yandexcloud.net
   - name: DB_PG_PORT
