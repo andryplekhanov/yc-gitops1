@@ -12,7 +12,7 @@ applications:
       # Путь до чарта
       path: helm/charts/apps
       # Репозиторий
-      repoURL: <repo url with helm-chart>
+      repoURL: https://gitlab.com/andryplekhanov/yc-gitops1.git
     destination:
       # Устанавливаем все приложения в тот же неймспейс argocd
       namespace: argocd

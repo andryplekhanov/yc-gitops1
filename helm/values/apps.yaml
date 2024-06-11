@@ -1,6 +1,6 @@
 spec:
   source:
-    repoURL: <repo url with helm-chart>
+    repoURL: https://gitlab.com/andryplekhanov/yc-gitops1.git
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc

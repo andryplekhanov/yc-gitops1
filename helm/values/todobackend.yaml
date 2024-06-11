@@ -1,39 +1,59 @@
 image:
-  repository: <адрес реджистри-репозитория todobackend, который узнали из логов после работы CI-пайлайна build>
-  tag: <тэг сборки образа todobackend, типа main-55ea909e4be50d9dda30449a84439a1408e78907>
+    repository: ENC[AES256_GCM,data:RJuBvy4BUdOGmSxg4LFeBFnj8V4I/3FrSjdLeIAhcHOglismoV9WfDs+5ANEen3VAgAHbs0crIDm,iv:r29E1orz677p9C3iuDq/wub+ZEx4CqlWFFTkqi2l14M=,tag:SgwBME+27PS+XSobKvNWJA==,type:str]
+    tag: ENC[AES256_GCM,data:nCqatK3Kbmcfh4JLnNkDpaA9/eMp8cDK1+6d2qa3eO22f3t9kkqaJcIoe/BP,iv:wzEkL6V2JgawITJF15sP3RpAC/UaLhDhdBlwTKLsblk=,tag:6mHNECcDNMgczseUl8O+kw==,type:str]
 ingress:
-  enabled: true
-  annotations:
-    ingress.alb.yc.io/subnets: <subnet id ru-central1-b>
-    ingress.alb.yc.io/external-ipv4-address: <static IP address>
-    ingress.alb.yc.io/group-name: infra-ingress
-    ingress.alb.yc.io/security-groups: <security-group id>
-  hosts:
-    - host: todoapp.<ваш домен>
-      paths:
-        - path: /api
-          pathType: ImplementationSpecific
-  tls:
-    - hosts:
-        - todoapp.<ваш домен>
-      secretName: yc-certmgr-cert-id-<ваш tls cert id>
+    enabled: ENC[AES256_GCM,data:0kQYvg==,iv:eDsp79JDXNujmLfXgnD7a7JRwzJ1mFXQ1bhtJ5CtJdw=,tag:wEBhnXWeqQUBKTIbk67tPQ==,type:bool]
+    annotations:
+        ingress.alb.yc.io/subnets: ENC[AES256_GCM,data:19/I2cDYvJ+pxzD0z2W6ksHVLYA=,iv:x79cGuxd7IS5GZCnqC5wEBFw4i/QAX4Hxh6YhaOxD64=,tag:4f4kEf8/fbO8pRTezwcUWA==,type:str]
+        ingress.alb.yc.io/external-ipv4-address: ENC[AES256_GCM,data:N4jZlIn9+eRf9pT3,iv:r+6sbxVp9xR5pjsTrB5p2hLPeyHdhfzz4F6t0+MR3Pc=,tag:uh0wSSdnBDYhS/pe7fOkvA==,type:str]
+        ingress.alb.yc.io/group-name: ENC[AES256_GCM,data:l5MAxlasKY9YlJoI9w==,iv:lyamYPHsXhjZLkHN7ixTVr4qGYNFoecdZxyNrDy1g2s=,tag:zKmgnpXA/wEzDZPSUkkTsg==,type:str]
+        ingress.alb.yc.io/security-groups: ENC[AES256_GCM,data:D3PQtJHjeACWIQbK/bxAgY6k3tA=,iv:E7AYykgV5Zo3oNWVOvfMw7joqD2cdeChesYATCAttlM=,tag:Waip3sYcrpzW3bN23Mgs/w==,type:str]
+    hosts:
+        - host: ENC[AES256_GCM,data:tcyG0oklzUnNHqpZIOKtADsPPjWiZn7TSeA=,iv:bSK60etLrV6tulQUYkcuAaIy3HitSVWotANgj6lv8TM=,tag:j+sPyhEmC6UeWX//utHGYg==,type:str]
+          paths:
+            - path: ENC[AES256_GCM,data:Wbcjew==,iv:P8Zs+HdxS5u0TjccGjbZpt+8UZMojcPH7GhkqGZ9Z7o=,tag:Kzfk+X4Sq1zQq57dm9Z/uQ==,type:str]
+              pathType: ENC[AES256_GCM,data:nwbLRMEGU0EUfaTtkQYjQn3C7JSw3w==,iv:NiDI2r5MiESbJfIDe2nl1OJpzgmwyyeika44hkn+6II=,tag:GX3XDGiKgAVX+fRi8psv8A==,type:str]
+    tls:
+        - hosts:
+            - ENC[AES256_GCM,data:KIKyvRB9IJGFKgUe6h2qy6VbYS0gkKCF1As=,iv:YhyQLFG/a8Al0vxIrbkFza3jRSu4taps09iEOp6DAH0=,tag:DyDOkB9BKMIaQB7y6M46dA==,type:str]
+          secretName: ENC[AES256_GCM,data:qmkmlkN9WFyTyeuyYlwBd/tNTLjuNAOcgmNBmK0K88fvCMp6QkOP,iv:xvf6YB907odKfeqHuv1+4KiHncf8YXco7lrxoS7mwCY=,tag:smcGWSxmWV6krRYz8/kLcg==,type:str]
 service:
-  type: NodePort
-  nodePort: 30084
+    type: ENC[AES256_GCM,data:UCxLEEV5OLI=,iv:z55rWg7s8nrZ7U2cv5psj3LH8ULlljJrzOmGdT16eXM=,tag:VJu9/8473qVW87jKknrCxA==,type:str]
+    nodePort: ENC[AES256_GCM,data:xR9OW+o=,iv:bnOpS14TpKwJejPnsIsSOlhLkarnuUjaMSRoEErSvu0=,tag:c5H9uC2fCzdz6Azto4mdhA==,type:int]
 env:
-  - name: DB_PG_NAME
-    value: <название базы данных PostgreSQL, которое вы указали при создании инфраструктуры>
-  - name: DB_PG_USER
-    value: <имя пользователя базы данных PostgreSQL>
-  - name: DB_PG_PASSWORD
-    value: <название базы данных PostgreSQL>
-  - name: DB_PG_HOST
-    value: c-<postgres_cluster_id>.rw.mdb.yandexcloud.net
-  - name: DB_PG_PORT
-    value: '6432'
+    - name: ENC[AES256_GCM,data:Os+IN+g8xWx5cA==,iv:mOHY0QNtHmUQBC76zqBYhsQydn+bp3QdTGF8jYRjCYw=,tag:8fTvAe5y0plMRleB3oT2lg==,type:str]
+      value: ENC[AES256_GCM,data:+Yck3/WykQ==,iv:F53SNfeOxrPWPLemKhiIVPexxvt1hcM0G3Knj7WcfSA=,tag:YeCDAKEh91Uvm6vnVti9GQ==,type:str]
+    - name: ENC[AES256_GCM,data:fMJa5tqU0z8abg==,iv:gBlSqusHnMwC9rP5Uk9Lv1xqf9Y7NVqli1zond9fPPU=,tag:S2YAB+E7YCsmcrPRZ7iFeA==,type:str]
+      value: ENC[AES256_GCM,data:9/gx2CYv6T3BlZU=,iv:g7X0bIBXkkcmOPBILa1ps86rwzT2tDmGWx4mzRBmJiY=,tag:zBBX47d9jFllwYiVQrtzew==,type:str]
+    - name: ENC[AES256_GCM,data:eoAocIImC610aTBdfoo=,iv:F5WF79YeFRyWAPfW1aDlf49QREXFo268s3QRt7oN35g=,tag:7+EbIVjAQDnqYG+7/AQ8NQ==,type:str]
+      value: ENC[AES256_GCM,data:UVaHTwDAWKi7FohX,iv:y7vTtH1cuR/CaMp3k1+bUfwT51hXEOo/J3kwJwTthI4=,tag:Rtg6bfSxZLv4AoMkC11PRA==,type:str]
+    - name: ENC[AES256_GCM,data:QVHYdcUeHags7g==,iv:Uv1XzrhtDvYXtdZcM8lqKBoyBr4/KCrvGy6tsfbNTb8=,tag:sgJuDAO/JT4XkoIQ5WlQ3w==,type:str]
+      value: ENC[AES256_GCM,data:iTW5nTOSUBNBC5wqYJLur6oQL8Icb4lrsNcLGDB6HtuSOYVUUlLM6n+S3wBB,iv:7cnDAo/sIYUHCaRDYgmJQjz9Wyl1fuphlRnfXWSYAhk=,tag:PT3yqY3jE0iKB6rqQMbuCA==,type:str]
+    - name: ENC[AES256_GCM,data:+i7kYnw4B4NgwA==,iv:uw/I0/AsJI0EfMqLknkEPBWXa5xpXkDxsyR8ASxdkFg=,tag:mD05i855GMr7ZNTnV+/SoQ==,type:str]
+      value: ENC[AES256_GCM,data:yrW8DQ==,iv:86iUjDRVkcFKZWaBk1Ei54wLp6Ls3Cdn7NhgGypz3Y0=,tag:ZwA20enyIH1pblqmVDB8jQ==,type:str]
 migrations:
-  activeDeadlineSeconds: 300
-  command:
-    - python
-    - manage.py
-    - migrate
+    activeDeadlineSeconds: ENC[AES256_GCM,data:pwwK,iv:489C5xrd7olbn5SUme5CFJ02hXK+VmCFk2qnvq+J4NY=,tag:zaBlFSmDZqV/63S1jeSBNw==,type:int]
+    command:
+        - ENC[AES256_GCM,data:0Y4HCUlC,iv:Tjxxl1rwFIKzLOIVkw8Kt8i6XQjRHJg07eu1651mT4M=,tag:Lm3iwusus7eOQ/46VTLs7Q==,type:str]
+        - ENC[AES256_GCM,data:dZV0pTzLdNMJ,iv:vKyYzuGMAwQ1xf0zZ2JU8MetXX2u5as/frRY5YYYGcE=,tag:7fHZ4pYFUV9l+WrBz64aAg==,type:str]
+        - ENC[AES256_GCM,data:fo6TdtK+aQ==,iv:CBzoRbPxOi2uOreSRMag1uUpIuztXdvwSMFlwLtV8Io=,tag:ILLLhowwmYBw0gRkF4otuQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1gzxq3pud6r2elndfemmg4gad5rzrflsjkrc5ycqudvl0mg2h5p4ssszyad
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBheFBxK1FlekNCUHFZS2gw
+            d2xQeGloZW5oUGlCR1FJQ250TGJ5SDRuTEVNCkt0N3hrYjk4VTNRL2RKWTczVUxl
+            T2gzQThwaW4zbU9KUEJkcFgwL1hqLzAKLS0tIHBEdmU3YWVjQmV4R1cyc3dtQk9l
+            L0EySnl0QURYM3BMbTIvYW81VXA4NTgK01B9FNxDjeZJstIlleMARd3OUS5JCTtR
+            Q6X5qnvbwU+S4KT3/AXlsET/iKS869tjYMqJF/WIUYV+OlnMzN0ocQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-06-11T07:49:29Z"
+    mac: ENC[AES256_GCM,data:WfCUh0ChNEO6C/nsRRETYExSEa38eb7cAUoDZ+dRnxcHcl4OKarTjJlEqGABCyLZv/o2ERw0PhqAastVz2hc327JxKxaLFCZxpooI3oPsf1NSD6OttcBmSovt4xqeUiWL3JuI46p4ziYiis+50Xr0MTHLzkkbpBKGlmyn0qghYU=,iv:XWWrtWcz+cZY8gE/WYmolRiKE+UQ00eFNA7Y0BcEEOg=,tag:E+gcT33bhrxFU+xcZtC9Kg==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.8.1
