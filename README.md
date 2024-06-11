@@ -53,14 +53,14 @@ terraform apply \
 ```
 Outputs:
 
-yandex_cm_certificate_id = "fpqtka6kjg6q4cjl42rl"
-yandex_vpc_address = "158.160.66.98"
-yandex_vpc_subnet_id = "e2l63pdkudnn1rbbr4h4"
-yc_network_id = "enpmh0hoc1i2gk5knkcr"
-k8s_cluster_id = "cate0ugm3ubsq2iana7f"
-container_registry_id = "crplq85o3ts2puflph5j"
-security_group_id = "enpmbs0454vsg2vjtida"
-postgres_cluster_id = "c9qr4lslh65aha2o56q1"
+container_registry_id = "crp69e285mfj20bs4g8d"
+k8s_cluster_id = "catamgrfucga530niuuv"
+postgres_cluster_id = "c9qu6uq5h780np9bfokc"
+security_group_id = "enpp86il0rdrhjo3slkj"
+yandex_cm_certificate_id = "fpqg57o3bhhkto5f9jhm"
+yandex_vpc_address = "158.160.16.2"
+yandex_vpc_subnet_id = "e2l2n59ar0m90j4qmunk"
+yc_network_id = "enp6elt8tgn1f6rs00l4"
 ```
 
 - переходим в папку с чартами: `cd ../helm`
@@ -127,11 +127,14 @@ helm install gitlab-runner charts/gitlab-runner \
 
 - из папки `values/templates` переносим файлы в папку `values` и меняем у них расширение на **.yaml**
 - редактируем файлы в папке `values`. Вписываем параметры везде, где встречаются угловые скобки **<some_data>**
-- зашифровываем их, например: `helm secrets enc values/argocd.yaml`
+- зашифровываем эти файлы, кроме **apps.yaml** и **argocd-apps.yaml**, например: `helm secrets enc values/argocd.yaml`
+- всё коммитим и пушим в Gitlab
 - устанавливаем Argocd в кластер: `helm secrets -n argocd upgrade --install argocd charts/argo-cd -f values/argocd.yaml`
 - добавляем репо в helm: `helm repo add argo https://argoproj.github.io/argo-helm`
 - устанавливаем **App of apps** из репо: `helm secrets -n argocd upgrade --install argocd-apps argo/argocd-apps -f values/argocd-apps.yaml`
-- всё коммитим и пушим в Gitlab
-- минут через 10-15, когда поднимется балансировщик, можем зайти на наш Argocd по адресу `https://argocd.<ваш домен>`
-  - логин **admin**, 
-  - пароль узнать командой `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
+
+Минут через 10-15, когда поднимется балансировщик, можем зайти на наш Argocd по адресу `https://argocd.<ваш домен>`
+- логин **admin**, 
+- пароль узнать командой `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
+
+Также по адресу `https://todoapp.<ваш домен>` получаем наже работающее приложение.
