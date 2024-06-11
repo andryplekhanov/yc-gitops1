@@ -1,42 +1,22 @@
 image:
-    tag: ENC[AES256_GCM,data:WodHZKQt3Y1HoauxoP3hqGwD4GMEazfXpLA70RhcQC2UJV/ZHEmvU4S/A6f7,iv:AA9FowM7o9YAa8yqun5SnfvUBtjRXFp3cliDXWKAcGE=,tag:FcBg+QSEEJx1zcNmSbWI7A==,type:str]
-    repository: ENC[AES256_GCM,data:sBwQk/vvmaFxAC9CZSq0j7DrkszpDyIs2BScxzvRXmvE1YVnhu9j7Y6M7ak01zQYqoQ4at0XvBzzAQ==,iv:VwawyCZTrrIuujgvL2ELdke8uiiAoSav76aChihXz9w=,tag:NP2o18kxV9yfvCAHUHm6RQ==,type:str]
+  repository: <адрес реджистри-репозитория todofrontend, который узнали из логов после работы CI-пайлайна build>
+  tag: <тэг сборки образа todofrontend, типа main-55ea909e4be50d9dda30449a84439a1408e78907>
 ingress:
-    enabled: ENC[AES256_GCM,data:H+T9WQ==,iv:00+TiGSIDFFPoBuQQsqwFliM9BDjvcfp6R8TGn5ceCc=,tag:QMqWPt0tw/upc7EtkA5tSw==,type:bool]
-    annotations:
-        ingress.alb.yc.io/subnets: ENC[AES256_GCM,data:wKU/fgkko5ikA5YEVC4Y8uVkAxA=,iv:D9R7RVwcb6JTPk53d1LhLey/xreZD5hgdRZDeDJEznM=,tag:G63cfAk9DTmGVu06LZskWA==,type:str]
-        ingress.alb.yc.io/external-ipv4-address: ENC[AES256_GCM,data:7oiAwgX/npOdlUB2,iv:dPhByOJFeZcL4K6RHFq4e0pEW6LCrWG8i213ZTPESfA=,tag:nSv5WNmsMDhWoDTc79RRHw==,type:str]
-        ingress.alb.yc.io/group-name: ENC[AES256_GCM,data:QPqi4CnaMDqSwTfWmA==,iv:qO1JCzvmFRK2pafsjcg3KtRioJlcwAabf14hnWHcFyY=,tag:2LaDTNIQ2l/nKUocKQLQMQ==,type:str]
-        ingress.alb.yc.io/security-groups: ENC[AES256_GCM,data:X/e8AvidpSKWX7S59dRuNej95zI=,iv:lS+FWm9H1UBOcm9+7iZY9uQAdG3nxrci26jEu8Ro9d0=,tag:u8/ShFPeOY3yY8SGp78U6w==,type:str]
-    hosts:
-        - host: ENC[AES256_GCM,data:dKnOyttiZSA0fQNSaH7hdHOn0qoX4iPq23Y=,iv:1bfLOMbYXvypSUhZR79nqNmiaGy8rcS/f5fqK7hkAfU=,tag:PkoP5HesnwjkXdonXoK72Q==,type:str]
-          paths:
-            - path: ENC[AES256_GCM,data:+w==,iv:xf0IfasGRIayOnufjY5rCXvS8C10q5ejC1La+RMPbVg=,tag:l4Yjee5lJnm7H7H/LK4kcw==,type:str]
-              pathType: ENC[AES256_GCM,data:1iuiSVw6bOoYz4Jced+WLnry0+GuNg==,iv:2JyRxhQd98lRZIwWXQI0d+VhDViuZdH/VcjKWVGaQ6o=,tag:GxGf3ro/1uNC6vyNeko9WQ==,type:str]
-    tls:
-        - hosts:
-            - ENC[AES256_GCM,data:eghZvnMrvfEVG4FRiaLInAbIQTsZ0sTxe+U=,iv:BRIP9VPwxo8w1K7BF24SeSYZ0V9fKLNuo00h4s4G7SA=,tag:m8iboHe/NcK/RcuNhw11PA==,type:str]
-          secretName: ENC[AES256_GCM,data:oaok56bN28EywUU3pSfmPmvgxQaNrgbD6cOdXL6ezP/MC5CsucoO,iv:EfwhtkyTjFcA1r3g7R2wegeVjx/fNri+iwle9KA12NM=,tag:ZIfvP96A2iE6gz58WjbPMQ==,type:str]
+  enabled: true
+  annotations:
+    ingress.alb.yc.io/subnets: <yandex_vpc_subnet_id>
+    ingress.alb.yc.io/external-ipv4-address: <yandex_vpc_address>
+    ingress.alb.yc.io/group-name: infra-ingress
+    ingress.alb.yc.io/security-groups: <security_group_id>
+  hosts:
+    - host: todoapp.<ваш домен>
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - todoapp.<ваш домен>
+      secretName: yc-certmgr-cert-id-<yandex_cm_certificate_id>
 service:
-    type: ENC[AES256_GCM,data:IZo1IKIFlZs=,iv:61Bvy8gmwHBwwRsaz6WiQti8QENxQujjSAM5SZ41FyY=,tag:uxzWeonGV6iPgH0JwrJsjQ==,type:str]
-    nodePort: ENC[AES256_GCM,data:1bssuFc=,iv:z9O+ZCjMhohtYyNQKrEX0h6aD5lOVMiUgsgq3+KvMDA=,tag:PO5eJo4aLc3dXNqK651T0A==,type:int]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1gzxq3pud6r2elndfemmg4gad5rzrflsjkrc5ycqudvl0mg2h5p4ssszyad
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGVFNiVVNGYjRBb0d6clRh
-            Y3JmdDJKdkYwT3EwZlhISDlsVlM1Mjl1NkMwCmRhM0owYnZJS01tSTVBZHdFR1A3
-            RVVKUFExM0lRd2JqbkhKeVI2TjVWdzgKLS0tIDVBd1k0ci94MmNEM1Nyakd5WndP
-            L3VSTTYrTVhXcjZseStVVjJOWUVMd0EKwbE1g4ktTi0kbSHfIK4C2smdRt3HntOF
-            1Xn7JcD5BhdaqY5zXaOTsr/ySkKZCCulXORvx6UEV+tj0M2oPwAmnw==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-11T07:49:14Z"
-    mac: ENC[AES256_GCM,data:5LFmnGZ7NeJ/sHdIjwT6cZrKDEraXr6uwtNIYxa8tObZl7R6etsuE8WIR9EGGXbcKgo3k22PMrLx8ubH2ZlLkkMvJfQC17HPjuU3+MF1ooaSJwBJ2IpwrpbzA2sHWM6UC1ADa03aV8yw36KUIJ+FYlA7vM66Hm+KhocyaDK2OCg=,iv:p5APgkqXrwWrXG8LwonFOTT4qonvQjxlEBYNd1LtTn0=,tag:M5vsI82vRt+h/klEyV7FSQ==,type:str]
-    pgp: []
-    unencrypted_suffix: _unencrypted
-    version: 3.8.1
+  type: NodePort
+  nodePort: 30083

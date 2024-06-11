@@ -125,7 +125,6 @@ helm install gitlab-runner charts/gitlab-runner \
 
 ### Разворачиваем в кластере Argocd и App of apps
 
-- из папки `values/templates` переносим файлы в папку `values` и меняем у них расширение на **.yaml**
 - редактируем файлы в папке `values`. Вписываем параметры везде, где встречаются угловые скобки **<some_data>**
 - зашифровываем эти файлы, кроме **apps.yaml** и **argocd-apps.yaml**, например: `helm secrets enc values/argocd.yaml`
 - всё коммитим и пушим в Gitlab

@@ -1,35 +1,15 @@
 extraEnv:
-    - name: ENC[AES256_GCM,data:nAPWZEOL7BFQhuW5tFKBYes=,iv:d7yDiN7eDutm3q7G64xbv7V6o8+RwTLlL6Bt1S+5hWU=,tag:6K7aLRvsHOjGQPBELE7k8g==,type:str]
-      value: ENC[AES256_GCM,data:IpRc3SoEY6nO3Sah0t/fuV2ek5NjemthcmtOzLrjGG+N1/cse90wM46lkfwa17SzQyAoKm6QaFa8yYHT4UoHyQvk22gvq3dijc37MApXtN8asq8rhvJj+BYvuNLuEsbJMYfsxiqeafqyJs8MkOG/r8D4SIgSQwywQqu0DULqzkhui+3l5NmhbB8ZeoGyU5oTVPkH8jxx4rw0uNlZ3fez6YEOqmT+QfUxwzTU3B3ltP+7+cIaTPmp9czfw1GkdIhoUCAPjIlcYKrHhZyp8N/gtWXywgS7f5/FEfQaKYETl9mEpqAu8ugKsoh7XKY7wz/6FVr3RaEV6+q1XdU750E9JQB4XJZh6KieTSkgNi/IZfOIC86LbwLaDfKHWZ/UVv0HRue1LJ95+KbAq1sS3LkH8EHrn0pwCe1NvJVUXt6mYKbv0dEar+fVkeQ7b0OWg0X7GMQ+O0c52F5JCcGZGYK4KE5RoXZt5KykS81XU7SDtvGirY5bsgl7VW83O7ErT/QJ/nGpL7TzvVQYmWs19AclDob/mtzDkZc30ZFf8mwQAhmabiaB274THN1x2s+eF5L4Wx4npFiID2Kj8tWiP5CUqgOTYV2vmEilLrDOqdZeDt9nxRC3STw3n+GrSurX7c1xoB0IRja8S2NDFB7B9iPRt22Dl5sgiUfQcZkhD6SiPQ4f62qxWOXaldr4YGTE/LsCfxA4T/zZO55dlsXR29jx1bSlFGqr1zf17pwz/CG5CuHhF8J5gib0Gbx8gJxuBMTNEpx+oACINCn2RHz0dW028kqQb0QUOqTXy3RZI6gedKhU7L6HrX1w1K4fFtXKy+iFlyD4lfNbuRmmln2+/3AqeenAIZqpsIC/GWWjR2+oHgsjQv8L9cFd8HhAYFgHoO8+99/jPk432BqjmF4+0LM3HzqZxRZdsVJ7JRtVeKn2aSDTVYpJ3gOkeedWutGaJ5AIsnURzY2Kk3ZaMlKmMzhLnOVWmC0CKL0euvxbKFE36XMSLuk1VPKxQY877K9oi/orWLup6eu5A9uggTHZnTNJJ09XJkooZRgP07eSLkydKat5FGyrR1A1Fr9hH/adU/Th8eSpN7od3CGD97ezT6R1xL4IaLEcgEE3+LdpJ5WAWtEG6KmcxGk37NFz52JBn863JJcNKw3tQM1P0xTMoys8qUi7G2lw2gI8dxDx8T0L3f0/e3mEiKl24ZcASCClGrh0y5oHcEfJ1NMi1ZR0c9fWR5qzgknb70sbF5JXeUMXNOh4S4QjZxzvRkY9cvwCXQnAvgWZJ/FBRsQDl6AIXkrOQLCW0A78K5iG9JXQZYR2WswuJKF10bARrGlPkxfcku06ArjIWLmFmsiU6daFtRa3vIj/TMxEhDC7kx6uDrm4V7GkGlOtCDoy+LFCNUHH20czXuJz3O6gusDsrD0M3g/d+6qImb0zUtZUI4BHQRbescGBVIZ293s2GMV15qXUAvnZQ+RZbXUrukqrTNElUGeCRt9Q7M4NyMUqNcu2XNSFQcUejKONHG1P6pmcxO/9FuAiMcqCLzCqeC6NaeUAkiDlFQpmpZ8g2b/qgWp+6QzJyb507VXkCwrJiqhohd8DwqCAk/J5nSs6c4IbM6Eih31AjRE30J/6xvkoV7pZLxrGcUc9LVaul1U1o9vxvS5mQmmTaYB7YNiIUI/vCowgBkDYcdN36qKibAnTTbeGMNx/kpCmBvne07Q615OvkhpJ+y3B3I0IT0Wlrpac7Vr26YyuEQ6E27HzMiDLSdotZgxVoPorutpj/RT/lOHZ6vCLxGQS3vXWneGginEQySZJLzuA5HR4201s2CfX7Wcj2mgTRbr9ASbfXE4QBbgwmq+dFEEf0PspIW89QE2RsMLnAkZ45y19boNveyD1yBNQPJwWl0gihuZGLvcP+QbLxReCJT2hsPVWKKe2P+Ejt7nK4j4qurVrnVa9KeL7m34idrEMkepG2uuK3dKuMPCAJ3Lub4Xtz+tafZjiNhvGGYoMF/NX6Zy2jqke2pQEcq3sMrnZB6pe0YyCAMPUsmhRsiJKfz7Hv2ksjYJenvcot9GtyCdrPlZOCAhJbj0px7i7q1tFBEbS0pzzcYx/3PdSOOg7QZZrUGMJwurJ5aTAVHAYLdTZQOF7Wx4Wd191iCa/IigQ02uzizw1n6e/7ZyEBwdD/SOHafrmfNFWnaASflm+bPC3zdHin4mWKkn+SQ/m1Y/WgUSsKi3TAMcLrHnUFSx6SdoJxAXd7U1hVN8l59y+y/coSr0mdZneloQzf5sMBoAAt9BCG8n3ZPUrz5ZCfZ+vNQmQgNO2TiCiVrEdxGaY8vFHmzkuSYOw0n8KvTeRVCjb8qjFBFOfkOhDYufAVk08w85hi8Ogy58UY8jlbFQW2dsqoBL+DTt1aGzdzgFGzX+g417eS1yhPtTb5o3czJgJ2i2EJVqALrFcnQRI2PG3H+eM/L7cHGG7VUrb/NV50UM9T08uNEDq3tbyJUcXTsuUrDU2Bl6qfhX520dFPMc0NeNcXam2FM/jzsARKQDPKDh79H++Og+H3WtCzYWjBPHAaZWZ31zfCSPBLSujTBEvsqoKGWn0RPuVWj2SqY2sJQCgfkU4x+NEJwDdmHncpdtnQtTSBZymduJGdzuIaBzVgPhpr4NjHFK4kQ+wIEcgII86d9Pwy6yvpJYBikhn779JNnI6yQ5wdu5z8XAfVuCXCAjqqyeB+Qr2UXsoVD5prlYqMtNna0K2Iu53jI5FnBy37t/bRqpH130Mjr2kVQ22TBmQXnwbtiYiKHGwK4b/jE3Wjvpyrw2fL0ab+QW5bcOgGNb84vGGUVh01vTTUjFof9rZIypH2yssJU2mh1OnDcnP2NZbdERMsLsv7OwvmMpZPB1TpuPtz5wjodozsJYKC85/LFw4wtp96zEPOnMMuSGni37t6N+36oqTtPFxwiCptVrT+l16MT4AC279gnxYN7ZbTV6Vg18PzEUIyiZ9/NxaWKQQkIYY8PDaOKmkYVj+LLF0PwIgFI/uqevzjQtcniJXhxqK4yX606PsQUCzFK16GomWRCXX/7rACo/PImZSFUJZASZvuQwtq841pRml1YRqoeoahTAsSiH1V6lyg38jHLaJY1mDUSHSC69ooUkgGFkasb/JDFiL4BFpLgJ+aFvvjpBpyDUZR7m9L+8Yklxx0Obtj3YJCqarnmyv4wTEkbuoY/DaZ//kGtGwaOHSmyZrOcXIznr7iEkgHm7AW3lxGHDofc4E94JDqPc9BBwCDub9aWzaDVbIiFC4Qbg=,iv:1pStLsO3z6w16fVL1U74ILc64qAuAddudQFnIPkzELE=,tag:SczZxqotdSyJtsdbJQE2nw==,type:str]
+  - name: YC_REGISTRY_CREDS
+    value: 'json_key:<json-ключ из файла reg-puller-sa-key.json в одну строку>'
 config:
-    argocd:
-        grpcWeb: ENC[AES256_GCM,data:MfSpGpo=,iv:xnBb+gZf3bafnFaykLRB9cujO9BEfrwj6ZEeSFbPp8g=,tag:UBIPJbNiFW2fYO4th6y7Uw==,type:bool]
-        serverAddress: ENC[AES256_GCM,data:Npr33tsLOuXHZQVl5MVkSFpnGlZcyjxxp3xZuw==,iv:jJ6FN0E4jKT89Dz7+cNEHApU79BPYe2Mn2KjkUWAtgE=,tag:uUQX1JiET0fkB0ESXiXu5g==,type:str]
-        insecure: ENC[AES256_GCM,data:hkQ1Jg==,iv:gNWsWarLaOxINRCSqsFq2p4qbq0dDZukpqCUqFvorm4=,tag:hfI98hx2SBZORWYXI+ezmQ==,type:bool]
-        plaintext: ENC[AES256_GCM,data:eAgLkRY=,iv:zdwY6bI0m4CojCxTvJMQvIRhdH/n3NqL2KLVPIW1Luc=,tag:kguxJGbjxO3u2ZBxV2bIjA==,type:bool]
-    registries:
-        - name: ENC[AES256_GCM,data:WZk=,iv:JHFCHMofU7oUP97ZovIiVeJ1Y8R5L+qYj6ZSeVGxUQM=,tag:V+2zzVlPdXgyHxmPjxERMg==,type:str]
-          api_url: ENC[AES256_GCM,data:k+fyI6u+pdxTXsf2Qi6VuZ8=,iv:bx0T4O0rVGdLGX1DN1M6YU8KnvQENjFIceXe6mjSYgU=,tag:NPzkCHPhHrsjALkclb2FRQ==,type:str]
-          ping: ENC[AES256_GCM,data:k0XBuqE=,iv:5k+8jHaEXYBWyJ5azJIfwnCOgHInTUqPq6KxA1WU7Q4=,tag:7rBgxbL6brDLmN1gUIZP7Q==,type:bool]
-          credentials: ENC[AES256_GCM,data:kQz0R/zBhKDN6ewR7LI0SoB7iPCx,iv:ESr2KzyXqfXjx6a/m2uDFsk7NhYQTWKQH2mdnW4ta0c=,tag:d78qblcKbvaGXuUMrhH4CA==,type:str]
-          prefix: ENC[AES256_GCM,data:5PBMUHA0aE5J,iv:pTVIAen/2qFZZ+AqJ8VTSAfZg7oh741AkBtRSrIVQM4=,tag:EVmL0y7k6g4MbwF/lRZW5A==,type:str]
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1gzxq3pud6r2elndfemmg4gad5rzrflsjkrc5ycqudvl0mg2h5p4ssszyad
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA2QUpDUVI2dkRQdHgrcTlO
-            WUVKdEJUeVBpVnRsMUEzaGFuMlNKS055R0J3CnZPTW93ZHBrSXpmTWlKbzNsUkFM
-            Slg2S2ZsaTVrV0dTTVpjUDZ2TmozREEKLS0tIC9UeXVOSVZ1TDJCK0ZlRTd5NTdT
-            RS9DRlJBNnQ2Y0Ric3BIUTUxYUcyUU0K9qGVGz/9CxbzATLg5AhEog7tGTdCUX3S
-            S73hgLKK9incSRyKSZIhs0wUVymmHocatEeQIc6LnwY5qOeAUEAOGA==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-11T07:48:54Z"
-    mac: ENC[AES256_GCM,data:zBb3lEB6o1DwQz2fXN2RYLiFD9kRJymEO4JvsXXSWCl4gC1s9w8aPFUKWIkbH3zwR0ikp5tKS9+iIuXIFIbsPMnlLKjEMrnvgMy7R/75T8etQXywQvNohg9FMqJO6B+PZ6ShmCfwZzYeyw3dFPug5xpjTtemN60RiP86iFyCqbY=,iv:TGGtkoZOVg0dC3Vg/k3dfOkVZzWUbgYJhZl6hZCH+DM=,tag:qKtDuip6EHDY6uf1HFzZWA==,type:str]
-    pgp: []
-    unencrypted_suffix: _unencrypted
-    version: 3.8.1
+  argocd:
+    grpcWeb: false
+    serverAddress: 'https://argocd-server.argocd'
+    insecure: true
+    plaintext: false
+  registries:
+    - name: YC
+      api_url: 'https://cr.yandex'
+      ping: false
+      credentials: 'env:YC_REGISTRY_CREDS'
+      prefix: cr.yandex
