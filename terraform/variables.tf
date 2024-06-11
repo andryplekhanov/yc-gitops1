@@ -19,7 +19,7 @@ variable "yc_token" {
 
 variable "user" {
   type        = string
-  description = "andrei"
+  description = ""
 }
 
 variable "zone" {
@@ -30,27 +30,27 @@ variable "zone" {
 
 variable "domain_name" {
   type        = string
-  default     = "andreiplekhanov.ru"
+  default     = ""
   description = "Your site's name, for example 'andreiplekhanov.ru'"
 }
 
 variable "db_password" {
   type        = string
-  default     = "123456qwerty"
+  default     = ""
   description = "Default password for PostgreSQL"
   sensitive   = true
 }
 
 variable "db_username" {
   type        = string
-  default     = "db_username"
+  default     = ""
   description = "Default username for PostgreSQL"
   sensitive   = true
 }
 
 variable "db_name" {
   type        = string
-  default     = "db_name"
+  default     = ""
   description = "Default name for PostgreSQL"
   sensitive   = true
 }
